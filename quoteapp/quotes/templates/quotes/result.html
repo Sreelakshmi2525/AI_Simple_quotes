@@ -1,0 +1,23 @@
+<!-- quotes/templates/quotes/result.html -->
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>Here's Your Quote ✨</h1>
+    
+    <div class="mood-tag">
+        Detected Mood: {{ detected_mood }}
+    </div>
+
+    <div class="quote-display">
+        <p class="quote-text">"{{ quote.text }}"</p>
+        <p class="author">— {{ quote.author }}</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="/" class="button">
+            Try Again
+        </a>
+    </div>
+</div>
+{% endblock %}

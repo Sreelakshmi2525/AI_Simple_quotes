@@ -1,0 +1,20 @@
+<!-- quotes/templates/quotes/error.html -->
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>Oops! 😕</h1>
+    
+    <div class="quote-display" style="border-color: #ff6b6b;">
+        <p class="quote-text" style="color: #ff6b6b;">
+            {{ error }}
+        </p>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="/" class="button" style="background: #ff6b6b;">
+            Try Again
+        </a>
+    </div>
+</div>
+{% endblock %}

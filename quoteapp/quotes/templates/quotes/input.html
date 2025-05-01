@@ -1,0 +1,26 @@
+<!-- quotes/templates/quotes/input.html -->
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>How Are You Feeling Today? 😊</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="input-container">
+            <textarea 
+                name="thoughts" 
+                placeholder="Share your thoughts here... ✍️"
+                required
+            ></textarea>
+        </div>
+        <button type="submit" class="button">
+            <span>Analyze & Get Quote</span>
+        </button>
+    </form>
+</div>
+
+<div class="loading">
+    <div class="loading-spinner"></div>
+    <p>Analyzing your thoughts...</p>
+</div>
+{% endblock %}
