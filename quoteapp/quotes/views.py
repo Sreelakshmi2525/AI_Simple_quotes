@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Quote
 from .mood_detector import MoodDetector
 import random
+
 def home(request):
     if request.method == 'POST':
         user_input = request.POST.get('thoughts', '').strip()
@@ -15,7 +16,9 @@ def home(request):
         
         try:
             mood = detector.detect_mood(user_input)
-            quotes = list(Quote.objects.filter(moods__icontains=mood).order_by('?'))  # Random ordering
+            
+            # Get quotes with fallback logic
+            quotes = list(Quote.objects.filter(moods__icontains=mood).order_by('?'))
             
             if not quotes:
                 quotes = list(Quote.objects.filter(moods__icontains="fallback").order_by('?'))
@@ -23,8 +26,15 @@ def home(request):
             if not quotes:
                 quotes = list(Quote.objects.all().order_by('?'))
             
-            selected_quote = quotes[0] if quotes else None
+            # Final check for empty database
+            if not quotes:
+                return render(request, 'quotes/error.html', {
+                    'error': "No quotes available in the database!"
+                })
+            
+            # Select random quote from available options
             selected_quote = random.choice(quotes)
+            
             return render(request, 'quotes/result.html', {
                 'quote': selected_quote,
                 'detected_mood': mood.capitalize(),
