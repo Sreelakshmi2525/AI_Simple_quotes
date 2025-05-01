@@ -121,4 +121,9 @@ MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
+##  Author  
+🔗 [GitHub Profile](https://github.com/Sreelakshmi2525)
+
+---
+
 **Note**: Requires Python 3.8+ | Optimized for CPU usage | Model size: ~500MB
