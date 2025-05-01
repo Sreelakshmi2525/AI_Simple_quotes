@@ -5,7 +5,7 @@ A Django web application that detects user emotions using AI and suggests inspir
 ## Features
 
 - **AI-Powered Mood Detection**: Utilizes `roberta-base-go_emotions` model for nuanced emotion recognition
-- **Dynamic Quote Suggestions**: 50+ curated quotes across 15+ emotional states
+- **Dynamic Quote Suggestions**: Curated quotes across emotional states
 - **Responsive UI**: Modern design with smooth animations and mobile compatibility
 - **Error Handling**: Graceful error recovery and user feedback
 - **Smart Fallbacks**: Default quotes when no mood-specific matches exist
